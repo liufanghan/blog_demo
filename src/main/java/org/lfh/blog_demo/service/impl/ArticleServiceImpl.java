@@ -51,16 +51,6 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Result deleteArticleById(Integer id) {
-//        //1.查询当前文章的user_id
-//        Article article = articleMapper.getArticleById(id);
-//        //2.判断是否是当前的用户
-//        Integer userId = UserHolder.getUser();
-//        if (article.getUserId().intValue() == userId.intValue()) {
-//            //3.若是，才进行删除，否则删除失败
-//
-//        }
-//        return Result.fail(ResultEnum.DELETE_ARTICLE_ERROR_1);
-
         int i = articleMapper.deleteArticleById(id);
         return i > 0 ? Result.success() : Result.fail(ResultEnum.DELETE_ARTICLE_ERROR_2);
 
@@ -68,22 +58,6 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Result updateArticleById(Integer id, ArticleParam articleParam) {
-//        Integer userId = UserHolder.getUser();
-//        //1.查询文章是否存在
-//        Article article = articleMapper.getArticleById(id);
-//        //2.存在则进行修改，不存在则返回错误
-//        if (article == null) {
-//            return Result.fail(ResultEnum.GET_ARTICLE_ERROR);
-//        }
-//        //3.判断该文章是否是自己的文章
-//        if (article.getUserId().intValue() == userId.intValue()) {
-//            article.setTitle(articleParam.getTitle());
-//            article.setContent(articleParam.getContent());
-//            article.setUpdateTime(LocalDateTime.now());
-//            int i = articleMapper.updateArticleById(article);
-//            return i > 0 ? Result.success() : Result.fail(ResultEnum.UPDATE_ARTICLE_ERROR_1);
-//        }
-//        return Result.fail(ResultEnum.UPDATE_ARTICLE_ERROR_2);
         Article article = new Article();
         article.setPostId(id);
         article.setTitle(articleParam.getTitle());

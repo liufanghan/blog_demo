@@ -13,7 +13,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import java.lang.reflect.Method;
 import java.util.Arrays;
 
 
@@ -22,17 +21,10 @@ import java.util.Arrays;
 @Component
 @Slf4j
 public class MyAop {
-    //切入点：待增强的方法
-    //@Pointcut("execution(public * org.lfh.springboot_demo.controller.*.*(..))")
-
-//    @Pointcut("@annotation(org.lfh.blog_demo.aop.LogAnnotation)")
-//    public void log() {
-//    }
 
     @Pointcut("execution(* org.lfh.blog_demo.controller.*.*(..))")
     public void classLog() {
     }
-
 
     @Around("classLog()")
     public Object around(ProceedingJoinPoint jp) throws Throwable {
@@ -46,12 +38,7 @@ public class MyAop {
         System.out.println("CLASS_METHOD : " + jp);
         System.out.println("ARGS : " + Arrays.toString(jp.getArgs()));
 
-
         MethodSignature methodSignature = (MethodSignature) jp.getSignature();
-        Method method = methodSignature.getMethod();
-//        LogAnnotation logAnnotation = method.getAnnotation(LogAnnotation.class);
-//        log.info("value {}", logAnnotation.value());
-//        log.info("desc {}", logAnnotation.desc());
 
         // 执行目标方法
         Object result;
