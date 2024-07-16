@@ -1,4 +1,4 @@
-package vo.param;
+package org.lfh.blog_demo.vo.param;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.AllArgsConstructor;

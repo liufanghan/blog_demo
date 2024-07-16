@@ -1,7 +1,7 @@
 package org.lfh.blog_demo.service;
 
 import org.lfh.blog_demo.util.Result;
-import vo.param.ArticleParam;
+import org.lfh.blog_demo.vo.param.ArticleParam;
 
 public interface ArticleService {
     Result listArticleById(Integer uid, Integer page, Integer size, Integer sort);

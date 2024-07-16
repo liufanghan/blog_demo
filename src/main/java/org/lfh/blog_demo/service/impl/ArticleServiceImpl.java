@@ -9,7 +9,7 @@ import org.lfh.blog_demo.service.ArticleService;
 import org.lfh.blog_demo.util.Result;
 import org.lfh.blog_demo.util.ResultEnum;
 import org.springframework.stereotype.Service;
-import vo.param.ArticleParam;
+import org.lfh.blog_demo.vo.param.ArticleParam;
 
 import java.time.LocalDateTime;
 import java.util.List;

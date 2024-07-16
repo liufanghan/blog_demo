@@ -11,7 +11,7 @@ import org.lfh.blog_demo.aop.PermissionAnnotation;
 import org.lfh.blog_demo.service.ArticleService;
 import org.lfh.blog_demo.util.Result;
 import org.springframework.web.bind.annotation.*;
-import vo.param.ArticleParam;
+import org.lfh.blog_demo.vo.param.ArticleParam;
 
 
 @Tag(name = "ArticleController", description = "文章控制器")

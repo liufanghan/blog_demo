@@ -10,7 +10,7 @@ import jakarta.annotation.Resource;
 import org.lfh.blog_demo.service.UserService;
 import org.lfh.blog_demo.util.Result;
 import org.springframework.web.bind.annotation.*;
-import vo.param.UserParam;
+import org.lfh.blog_demo.vo.param.UserParam;
 
 @Tag(name = "UserController", description = "用户控制器")
 @RestController

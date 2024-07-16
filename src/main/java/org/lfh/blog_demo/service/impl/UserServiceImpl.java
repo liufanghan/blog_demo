@@ -10,7 +10,7 @@ import org.lfh.blog_demo.util.ResultEnum;
 import org.lfh.blog_demo.util.UserHolder;
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
-import vo.param.UserParam;
+import org.lfh.blog_demo.vo.param.UserParam;
 
 import java.time.LocalDateTime;
 import java.util.regex.Matcher;
