@@ -1,11 +1,14 @@
 # 博客系统实现
 
-### 技术框架
+### 技术要求
 - Java 17
 - Spring Boot 3.3.1
 - MySQL
 - MyBatis 3.0.3
-
+### 开发工具
+- IDEA 2024.1.4
+- Navicat Premium 17
+- Apifox
 ### 技术要点
 - 自定义全局拦截器来判断是否登录
 - ThreadLocal保存用户ID，实现线程内部的数据隔离

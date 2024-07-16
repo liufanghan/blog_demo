@@ -6,7 +6,6 @@ public interface UserMapper {
 
     int insertUser(User user);
 
-
     User findByEmail(String email);
 
     User findByUserId(Integer userId);
