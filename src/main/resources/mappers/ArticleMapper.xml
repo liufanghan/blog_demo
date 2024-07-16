@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.lfh.blog_demo.mapper.ArticleMapper">
+
+    <resultMap id="articleResultMap" type="article">
+        <id column="post_id" property="postId"/>
+        <result column="user_id" property="userId"/>
+        <result column="created" property="createTime"/>
+        <result column="last_modified" property="updateTime"/>
+    </resultMap>
+
+    <select id="listArticleByUId" resultMap="articleResultMap">
+        select *
+        from t_article
+        where user_id = #{uid}
+        order by created
+        <if test="sort==1">DESC</if>
+        <if test="sort==0">ASC</if>
+    </select>
+
+    <insert id="insertArticle" useGeneratedKeys="true" keyProperty="postId">
+        insert into t_article(title, content, user_id, created, last_modified)
+        values (#{title}, #{content}, #{userId}, #{createTime}, #{updateTime})
+    </insert>
+
+    <select id="getArticleById" resultMap="articleResultMap">
+        select *
+        from t_article
+        where post_id = #{id}
+    </select>
+
+    <delete id="deleteArticleById">
+        delete
+        from t_article
+        where post_id =
+              #{id}
+    </delete>
+
+    <update id="updateArticleById">
+        update t_article
+        set title=#{title},
+            content=#{content},
+            last_modified=#{updateTime}
+        where post_id = #{postId}
+    </update>
+</mapper>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.lfh.blog_demo.mapper.UserMapper">
+    <resultMap id="userResultMap" type="user">
+        <id column="user_id" property="userId"/>
+        <result column="user_name" property="userName"/>
+        <result column="created" property="createTime"/>
+        <result column="last_modified" property="updateTime"/>
+    </resultMap>
+
+    <select id="findByEmail" resultMap="userResultMap">
+        select *
+        from t_user
+        where email = #{email}
+    </select>
+    <select id="findByUserId" resultMap="userResultMap">
+        select *
+        from t_user
+        where user_id = #{userId}
+    </select>
+    <select id="findByEmailAndPassword" resultMap="userResultMap">
+        select *
+        from t_user
+        where email = #{email}
+          and password = #{password}
+    </select>
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="userId">
+        insert into t_user(username, password, email, created, last_modified)
+        values (#{userName}, #{password}, #{email}, #{createTime}, #{updateTime})
+    </insert>
+
+</mapper>
