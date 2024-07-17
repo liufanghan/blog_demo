@@ -18,6 +18,33 @@
 - 使用自定义注解+AOP的方式实现权限认证
 - 使用Swagger生成接口文档
 
+### Docker部署
+- 生成可执行的jar文件
+- 编写Dockerfile
+  ```dockerfile
+  # 使用一个基础的 OpenJDK 17 镜像
+  FROM openjdk:17-jdk-alpine
+  
+  # 将工作目录设置为 /app
+  WORKDIR /app
+  
+  # 将本地的 JAR 文件复制到容器中的 /app 目录
+  COPY target/app.jar app.jar
+  
+  # 暴露应用程序的端口
+  EXPOSE 8080
+  
+  # 运行应用程序
+  ENTRYPOINT ["java", "-jar", "app.jar"]
+  ```
+- 构建Docker镜像
+  ```dockerfile
+  docker build -t blog_demo .
+  ```
+- 运行Docker镜像
+  ```dockerfile
+  docker run -p 8080:8080 blog_demo
+  ```
 ### 要点实现思路
 - 自定义全局拦截器来判断是否登录
   - 在全局拦截器中判断用户是否处于登录,如果未登录则返回状态码401,对于无需登录即可访问的接口不进行拦截,如GET /api/posts/
